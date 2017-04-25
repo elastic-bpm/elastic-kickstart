@@ -1,0 +1,24 @@
+{
+  "name": "elastic-kickstart",
+  "version": "1.0.0",
+  "description": "Kickstart the cluster",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elastic-bpm/elastic-kickstart.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elastic-bpm/elastic-kickstart/issues"
+  },
+  "homepage": "https://github.com/elastic-bpm/elastic-kickstart#readme",
+  "dependencies": {
+    "azure-arm-compute": "^1.0.0-preview",
+    "ms-rest-azure": "^2.1.1"
+  }
+}
