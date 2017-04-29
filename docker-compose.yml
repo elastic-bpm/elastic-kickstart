@@ -16,5 +16,19 @@
      build: ./swarmcontrol
      env_file:
       - ../scaling-variables-4.env
-   ansible:
+   ansible1:
      build: ./ansible
+     volumes:
+      - ../hosts:/etc/hosts
+      - ../id_rsa:/root/.ssh/id_rsa
+     entrypoint:
+      - ssh
+      - johannes@swarm1-master
+#     entrypoint:
+#      - ansible
+#      - -i
+#      - ./swarm1-hosts
+#      - all
+#      - -a
+#      - "uname -a"
+#      - --become

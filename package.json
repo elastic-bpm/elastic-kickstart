@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start1": "docker-compose run --rm swarm1 start",
+    "run1": "docker-compose run --rm ansible1",
     "stop1": "docker-compose run --rm swarm1 stop"
   },
   "repository": {
