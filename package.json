@@ -9,7 +9,7 @@
     "start2": "node app.js ../scaling-config-2 start",
     "start3": "node app.js ../scaling-config-3 start",
     "start4": "node app.js ../scaling-config-4 start",
-    "run1": "ansible --help",
+    "run1": "ssh johannes@swarm1-master 'bash -s' < ./startrun.sh",
     "stop1": "node app.js ../scaling-config-1 stop",
     "stop2": "node app.js ../scaling-config-2 stop",
     "stop3": "node app.js ../scaling-config-3 stop",
