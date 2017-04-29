@@ -1,42 +1,44 @@
  version: '3'
  services:
    start-1:
-     build: .
+     build: ./swarmcontrol
      env_file:
       - ../scaling-variables-1.env
      environment:
        ACTION: start
    start-2:
-     build: .
+     build: ./swarmcontrol
      env_file:
       - ../scaling-variables-2.env
      environment:
        ACTION: start
    start-3:
-     build: .
+     build: ./swarmcontrol
      env_file:
       - ../scaling-variables-3.env
      environment:
        ACTION: start
    start-4:
-     build: .
+     build: ./swarmcontrol
      env_file:
       - ../scaling-variables-4.env
      environment:
        ACTION: start
    stop-1:
-     build: .
+     build: ./swarmcontrol
      env_file:
       - ../scaling-variables-1.env
    stop-2:
-     build: .
+     build: ./swarmcontrol
      env_file:
       - ../scaling-variables-2.env
    stop-3:
-     build: .
+     build: ./swarmcontrol
      env_file:
       - ../scaling-variables-3.env
    stop-4:
-     build: .
+     build: ./swarmcontrol
      env_file:
       - ../scaling-variables-4.env
+   execute-1:
+     build: ./ansible
