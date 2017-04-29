@@ -9,11 +9,12 @@
     "start2": "node app.js ../scaling-config-2 start",
     "start3": "node app.js ../scaling-config-3 start",
     "start4": "node app.js ../scaling-config-4 start",
-    "run1": "ssh johannes@swarm1-master 'bash -s' < ./startrun.sh",
+    "run1": "./startrun.sh",
     "stop1": "node app.js ../scaling-config-1 stop",
     "stop2": "node app.js ../scaling-config-2 stop",
     "stop3": "node app.js ../scaling-config-3 stop",
-    "stop4": "node app.js ../scaling-config-4 stop"
+    "stop4": "node app.js ../scaling-config-4 stop",
+    "do1": "npm run start1 && sleep 20 && npm run run1 && npm run stop1"
   },
   "repository": {
     "type": "git",
