@@ -6,7 +6,7 @@ var domain = process.env.DOMAIN;
 var secret = process.env.APPLICATION_SECRET;
 var subscriptionId = process.env.AZURE_SUBSCRIPTION_ID;
 
-var action = process.env.ACTION || "stop";
+var action = process.argv[2] || process.env.ACTION || "stop";
 
 
 var credentials = new msRestAzure.ApplicationTokenCredentials(clientId, domain, secret);
