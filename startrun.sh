@@ -19,4 +19,6 @@ ssh $1 'bash -s' < ./start_elastic.sh
 # Wait for nodes to be ready
 ssh $1 'bash -s' < ./wait_for_nodes.sh
 
+# Start test
+ssh $1 'bash -s' < ./start_test.sh
 
