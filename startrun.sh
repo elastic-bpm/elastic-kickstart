@@ -27,3 +27,5 @@ end=$(date '+%Y-%m-%d %H:%M')
 echo "Test started at $start and finished at $end"
 
 # Time to download the stuff!
+node ../results/app.js '$start' '$end'
+
