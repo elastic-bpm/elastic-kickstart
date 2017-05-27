@@ -20,5 +20,10 @@ ssh $1 'bash -s' < ./start_elastic.sh
 ssh $1 'bash -s' < ./wait_for_nodes.sh
 
 # Start test
+start=$(date '+%Y-%m-%d %H:%M')
 ssh $1 'bash -s' < ./start_test.sh
+end=$(date '+%Y-%m-%d %H:%M')
 
+echo "Test started at $start and finished at $end"
+
+# Time to download the stuff!
