@@ -33,3 +33,7 @@ echo "Test started at $start and finished at $end"
 node ../results/app.js "$start" "$end" "$1" /mnt/c/Users/Johannes/Projects/elastic/results/output/
 out=$(date -d"$start" +%Y%m%d%H%M)
 echo "Downloaded to output: $out"
+
+# Generate .bat file
+echo "Rscript --vanilla rcode\graph.r C:\\Users\\Johannes\\Projects\\elastic\\results\\output\\$start.$1" > /mnt/c/Users/Johannes/Projects/elastic/results/output/$start$1.bat
+
