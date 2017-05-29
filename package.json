@@ -13,6 +13,7 @@
     "run2": "./startrun.sh swarm2-master",
     "run3": "./startrun.sh swarm3-master",
     "run4": "./startrun.sh swarm4-master",
+    "test1": "./startbpm.sh swarm1-master",
     "stop1": "node app.js ../scaling-config-1 stop",
     "stop2": "node app.js ../scaling-config-2 stop",
     "stop3": "node app.js ../scaling-config-3 stop",

@@ -7,7 +7,7 @@ until $(curl --output /dev/null --silent --head --fail localhost:8080/api/runnin
 done
 
 echo Sending run command
-curl -H "Content-Type: application/json" -X POST -d @/tmp/params.json localhost:8080/api/runTest
+curl -H "Content-Type: application/json" -X POST -d '{"run":"a", "workers":8}' localhost:8080/api/runTest
 
 echo Waiting for test to finish
 until $(curl --output /dev/null --silent --head --fail localhost:8080/api/testDone); do
