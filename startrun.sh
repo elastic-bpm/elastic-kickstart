@@ -21,6 +21,9 @@ ssh $1 'bash -s' < ./start_elastic.sh
 # Wait for nodes to be ready
 ssh $1 'bash -s' < ./wait_for_nodes.sh
 
+echo "Sleeping a bit"
+ssh $1 'sleep 30'
+
 # Start test
 start=$(date '+%Y-%m-%d %H:%M')
 ssh $1 'cat > /tmp/params.json' < $2
@@ -35,5 +38,7 @@ out=$(date -d"$start" +%Y%m%d%H%M)
 echo "Downloaded to output: $out"
 
 # Generate .bat file
-echo "Rscript --vanilla rcode\graph.r C:\\Users\\Johannes\\Projects\\elastic\\results\\output\\$start.$1" > /mnt/c/Users/Johannes/Projects/elastic/results/output/$start$1.bat
+cat << EOF > /mnt/c/Users/Johannes/Projects/elastic/results/output/convert.$out$1.bat
+Rscript --vanilla ..\rcode\graph.r C:/Users/Johannes/Projects/elastic/results/output/$out.$1
+EOF
 
