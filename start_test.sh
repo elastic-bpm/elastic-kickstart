@@ -26,9 +26,23 @@ until $(curl --output /dev/null --silent --head --fail localhost:8080/api/testDo
     sleep 5
 done
 
-echo Test is done, deleting workers
+sleep 5
 
+echo Test is done, deleting workers
 curl -X DELETE localhost:8080/api/docker/services/workers
+
+sleep 5
+
+echo Setting policy to off
+curl -H "Content-Type: application/json" -X POST -d '{"policy": "Off"}' localhost:8080/api/scheduler/policy
+
+sleep 5
+
+echo Removing elastic-bpm
+cd ~/elastic-bpm/
+docker-compose down
+
+sleep 5
 
 echo Done
 
