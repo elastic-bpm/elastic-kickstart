@@ -23,27 +23,40 @@ var action = process.argv[3] || process.env.ACTION || "stop";
 var credentials = new msRestAzure.ApplicationTokenCredentials(clientId, domain, secret);
 var computeClient = new ComputeClient(credentials, subscriptionId);
 
-computeClient.virtualMachines.listAll(function (err, result) {
-    if (err) {
-        console.log(err);
-    } else {
-        result.forEach(function (element) {
-            id_arr = element.id.split('/');
-            if (action === "stop") {
-                console.log("stopping " + element.name);
-                computeClient.virtualMachines.deallocate(id_arr[4], element.name, function(error) {
-                    if (error) {
-                        console.log(error);
-                    }
-                });
-            } else {
-                console.log("starting " + element.name);
-                computeClient.virtualMachines.start(id_arr[4], element.name, function(error) {
-                    if (error) {
-                        console.log(error);
-                    }
-                });
-            }
-        });
-    }
-});
+var startMachine = function (resource, name) {
+    computeClient.virtualMachines.start(resource, name, function (error) {
+        if (error) {
+            console.log(error);
+            startMachine(resource, name);
+        }
+    });
+}
+
+var stopMachine = function (resource, name) {
+    computeClient.virtualMachines.deallocate(resource, name, function (error) {
+        if (error) {
+            console.log(error);
+            stopMachine(resource, name);
+        }
+    });
+}
+
+var startAll = function () {
+    computeClient.virtualMachines.listAll(function (err, result) {
+        if (err) {
+            console.log(err);
+            startAll();
+        } else {
+            result.forEach(function (element) {
+                id_arr = element.id.split('/');
+                if (action === "stop") {
+                    console.log("stopping " + element.name);
+                    stopMachine(id_arr[4], element.name);
+                } else {
+                    console.log("starting " + element.name);
+                    startMachine(id_arr[4], element.name);
+                }
+            });
+        }
+    });
+}
