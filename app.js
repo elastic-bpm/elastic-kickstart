@@ -26,7 +26,7 @@ var computeClient = new ComputeClient(credentials, subscriptionId);
 var startMachine = function (resource, name) {
     computeClient.virtualMachines.start(resource, name, function (error) {
         if (error) {
-            console.log(error);
+            //console.log(error);
             startMachine(resource, name);
         }
     });
@@ -35,7 +35,7 @@ var startMachine = function (resource, name) {
 var stopMachine = function (resource, name) {
     computeClient.virtualMachines.deallocate(resource, name, function (error) {
         if (error) {
-            console.log(error);
+            //console.log(error);
             stopMachine(resource, name);
         }
     });
@@ -44,7 +44,7 @@ var stopMachine = function (resource, name) {
 var startAll = function () {
     computeClient.virtualMachines.listAll(function (err, result) {
         if (err) {
-            console.log(err);
+            //console.log(err);
             startAll();
         } else {
             result.forEach(function (element) {
