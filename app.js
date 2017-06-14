@@ -60,3 +60,5 @@ var startAll = function () {
         }
     });
 }
+
+startAll();
