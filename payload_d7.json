@@ -1,1 +1,1 @@
-{"policy": "Learning", "run":"d", "lowerBound":0.7, "upperBound": 1.2}
+{"policy": "OnDemand", "run":"d", "lowerBound":1.5, "upperBound": 2, "nodes": 1, "workers": 2}
