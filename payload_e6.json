@@ -1,1 +1,1 @@
-{"policy": "Learning", "run":"d", "lowerBound":40, "upperBound": 50}
+{"policy": "Learning", "run":"e", "lowerBound":40, "upperBound": 50, "workers": 2, "nodes": 1}

@@ -1,1 +1,1 @@
-{"policy": "OnDemand", "run":"d", "lowerBound":1.5, "upperBound": 2, "nodes": 1, "workers": 2}
+{"policy": "OnDemand", "run":"d", "lowerBound": 0.5, "upperBound": 0.7, "nodes": 1, "workers": 2}
